@@ -1,5 +1,6 @@
 var io = {};
-var state = 0;
+var story = null;
+var room;
 
 function init() {
 	io.input = document.getElementById("input");
@@ -19,25 +20,35 @@ function handleInput(aEvent) {
 		const input = io.input.value.toLowerCase();
 		io.input.value = "";
 
-		if (state === 0) {
+		if (story === null) {
 			if (input == 1) {
-				state = 1;
-				print("one");
+				story = one;
+				initStory();
 			} else if (input == 2) {
-				state = 2;
-				print("two");
+				story = two;
+				initStory();
 			} else if (input == 3) {
-				state = 3;
-				print("three");
+				story = three;
+				initStory();
 			} else if (input == 4) {
-				state = 4;
-				print("four");
+				story = four;
+				initStory();
 			} else if (input == 5) {
-				state = 5;
-				print("five");
+				if (one.done && two.done && three.done && four.done) {
+					story = five;
+					initStory();
+				} else {
+					print("Finish the other stories to unlock the epilogue");
+				}
 			} else {
 				printMenu();
 			}
+		} else if (input === "exit") {
+			story.done = true;
+			story = null;
+			printMenu();
+		} else if (input === "help") {
+			print("walk\ntalk\nexamine\nlook");
 		} else {
 			print("Command not found\nType 'help' for a list of commands");
 		}
@@ -47,7 +58,16 @@ function handleInput(aEvent) {
 }
 
 function printMenu() {
-	print("Select story by typing the corresponding number:\n1 Whoever Might Explain This Grim Folly\n2 Eyes Unseen Unknown\n3 They Found It Washed Ashore\n4 Torn Asunder With Plentiful Wisdom\n5 Epilogue [LOCKED]");
+	let text = "Select story by typing the corresponding number:\n1 Whoever Might Explain This Grim Folly\n2 Eyes Unseen Unknown\n3 They Found It Washed Ashore\n4 Torn Asunder With Plentiful Wisdom\n5 Epilogue";
+	if (!one.done || !two.done || !three.done || !four.done) {
+		text += " [LOCKED]";
+	}
+	print(text);
+}
+
+function initStory() {
+	room = story.start;
+	print(room.text);
 }
 
 function print(aString) {
