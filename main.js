@@ -6,7 +6,13 @@ function init() {
 	io.input = document.getElementById("input");
 	io.output = document.getElementById("output");
 	io.prompt = document.getElementById("prompt");
-	print("                  Whoever Might Explain This\n  _____ _____  _____ __  __   ______ ____  _      _  __     __\n / ____|  __ \\|_   _|  \\/  | |  ____/ __ \\| |    | | \\ \\   / /\n| |  __| |__) | | | | \\  / | | |__ | |  | | |    | |  \\ \\_/ /\n| | |_ |  _  /  | | | |\\/| | |  __|| |  | | |    | |   \\   /\n| |__| | | \\ \\ _| |_| |  | | | |   | |__| | |____| |____| |\n \\_____|_|  \\_\\_____|_|  |_| |_|    \\____/|______|______|_|\n");
+	if (document.body.offsetWidth > 860) {
+		print(bigTitle);
+	} else if (document.body.offsetWidth > 470) {
+		print(mediumTitle);
+	} else {
+		print(smallTitle);
+	}
 	printMenu();
 	setPrompt();
 	focusInput();
@@ -83,5 +89,33 @@ function focusInput() {
 
 function setPrompt() {
 	io.prompt.innerHTML = "> ";
-	io.input.style.width = (document.body.offsetWidth - io.prompt.offsetWidth * 4) + "px";
+	io.input.style.width = (document.body.offsetWidth - io.prompt.offsetWidth - 64) + "px";
 }
+
+const bigTitle = `                  Whoever Might Explain This
+  _____ _____  _____ __  __   ______ ____  _      _  __     __
+ / ____|  __ \\|_   _|  \\/  | |  ____/ __ \\| |    | | \\ \\   / /
+| |  __| |__) | | | | \\  / | | |__ | |  | | |    | |  \\ \\_/ /
+| | |_ |  _  /  | | | |\\/| | |  __|| |  | | |    | |   \\   /
+| |__| | | \\ \\ _| |_| |  | | | |   | |__| | |____| |____| |
+ \\_____|_|  \\_\\_____|_|  |_| |_|    \\____/|______|______|_|
+`;
+
+const mediumTitle = `   Whoever Might Explain This
+    _____ _____  _____ __  __
+   / ____|  __ \\|_   _|  \\/  |
+  | |  __| |__) | | | | \\  / |
+  | | |_ |  _  /  | | | |\\/| |
+  | |__| | | \\ \\ _| |_| |  | |
+   \\_____|_|  \\_\\_____|_|  |_|
+ ______ ____  _      _  __     __
+|  ____/ __ \\| |    | | \\ \\   / /
+| |__ | |  | | |    | |  \\ \\_/ /
+|  __|| |  | | |    | |   \\   /
+| |   | |__| | |____| |____| |
+|_|    \\____/|______|______|_|
+`;
+
+const smallTitle = `whoever might explain this
+-GRIM FOLLY-
+`;
