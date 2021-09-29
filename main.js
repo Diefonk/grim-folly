@@ -53,8 +53,12 @@ function handleInput(aEvent) {
 			story.done = true;
 			story = null;
 			printMenu();
+		} else if (input === "look" || input === "l") {
+			print(room.text);
 		} else if (input === "help") {
-			print("walk\ntalk\nexamine\nlook");
+			print(help);
+		} else if (input === "xyzzy") {
+			print("Nothing happens");
 		} else {
 			print("Command not found\nType 'help' for a list of commands");
 		}
@@ -64,7 +68,7 @@ function handleInput(aEvent) {
 }
 
 function printMenu() {
-	let text = "Select story by typing the corresponding number:\n1 Whoever Might Explain This Grim Folly\n2 Eyes Unseen Unknown\n3 They Found It Washed Ashore\n4 Torn Asunder With Plentiful Wisdom\n5 Epilogue";
+	let text = menu;
 	if (!one.done || !two.done || !three.done || !four.done) {
 		text += " [LOCKED]";
 	}
@@ -119,3 +123,16 @@ const mediumTitle = `   Whoever Might Explain This
 const smallTitle = `whoever might explain this
 -GRIM FOLLY-
 `;
+
+const menu = `Select story by typing the corresponding number:
+1 Whoever Might Explain This Grim Folly
+2 Eyes Unseen Unknown
+3 They Found It Washed Ashore
+4 Torn Asunder With Plentiful Wisdom
+5 Epilogue`;
+
+const help = `Commands:
+walk     (w) - walk in one of the cardinal directions
+talk     (t) - talk to a character
+examine  (x) - examine an object
+look     (l) - get information about where you are`;
