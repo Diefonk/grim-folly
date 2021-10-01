@@ -86,6 +86,19 @@ function handleInput(aEvent) {
 			} else {
 				print("There is nothing in that direction");
 			}
+		} else if (input === "talk" || input === "t" || input.substr(0, 5) === "talk " || input.substr(0, 2) === "t ") {
+			let spaceIndex = input.indexOf(" ");
+			let character = "";
+			if (spaceIndex >= 0) {
+				character = input.substr(spaceIndex + 1);
+				if (character in room && room[character].talk !== undefined) {
+					print(room[character].talk);
+				} else {
+					print("That is not a character");
+				}
+			} else {
+				print("The talk command requires a character\ne.g. 'talk rat'");
+			}
 		} else if (input === "look" || input === "l") {
 			print(room.text);
 		} else if (input === "help") {
