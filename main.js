@@ -88,16 +88,27 @@ function handleInput(aEvent) {
 			}
 		} else if (input === "talk" || input === "t" || input.substr(0, 5) === "talk " || input.substr(0, 2) === "t ") {
 			let spaceIndex = input.indexOf(" ");
-			let character = "";
 			if (spaceIndex >= 0) {
-				character = input.substr(spaceIndex + 1);
-				if (character in room && room[character].talk !== undefined) {
+				let character = input.substr(spaceIndex + 1);
+				if (character in room && room[character].talk) {
 					print(room[character].talk);
 				} else {
 					print("That is not a character");
 				}
 			} else {
 				print("The talk command requires a character\ne.g. 'talk rat'");
+			}
+		} else if (input === "examine" || input === "x" || input.substr(0, 8) === "examine " || input.substr(0, 2) === "x ") {
+			let spaceIndex = input.indexOf(" ");
+			if (spaceIndex >= 0) {
+				let object = input.substr(spaceIndex + 1);
+				if (object in room && room[object].text) {
+					print(room[object].text);
+				} else {
+					print("That is not an object");
+				}
+			} else {
+				print("The examine command requires an object\ne.g. 'examine box'");
 			}
 		} else if (input === "look" || input === "l") {
 			print(room.text);
