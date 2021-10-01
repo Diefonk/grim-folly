@@ -1,6 +1,7 @@
 var io = {};
 var story = null;
 var room;
+var exitStory = false;
 
 function init() {
 	io.input = document.getElementById("input");
@@ -49,9 +50,10 @@ function handleInput(aEvent) {
 			} else {
 				printMenu();
 			}
-		} else if (input === "exit") {
+		} else if (exitStory) {
 			story.done = true;
 			story = null;
+			exitStory = false;
 			printMenu();
 		} else if (input === "walk" || input === "w" || input.substr(0, 5) === "walk " || input.substr(0, 2) === "w ") {
 			let spaceIndex = input.indexOf(" ");
@@ -83,6 +85,10 @@ function handleInput(aEvent) {
 			} else if (direction in room) {
 				room = story[room[direction]];
 				print(room.text);
+				if (room.end) {
+					exitStory = true;
+					print("Press enter to continue...");
+				}
 			} else {
 				print("There is nothing in that direction");
 			}
