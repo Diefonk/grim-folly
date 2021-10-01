@@ -53,6 +53,39 @@ function handleInput(aEvent) {
 			story.done = true;
 			story = null;
 			printMenu();
+		} else if (input === "walk" || input === "w" || input.substr(0, 5) === "walk " || input.substr(0, 2) === "w ") {
+			let spaceIndex = input.indexOf(" ");
+			let direction = "";
+			if (spaceIndex >= 0) {
+				direction = input.substr(spaceIndex + 1);
+				switch (direction) {
+					case "n":
+						direction = "north";
+						break;
+					case "s":
+						direction = "south";
+						break;
+					case "e":
+						direction = "east";
+						break;
+					case "w":
+						direction = "west";
+						break;
+					default:
+						break;
+				}
+				if (!["north", "south", "east", "west"].includes(direction)) {
+					direction = "";
+				}
+			}
+			if (direction === "") {
+				print("The walk command requires a direction\ne.g. 'walk north' or 'w n'");
+			} else if (direction in room) {
+				room = story[room[direction]];
+				print(room.text);
+			} else {
+				print("There is nothing in that direction");
+			}
 		} else if (input === "look" || input === "l") {
 			print(room.text);
 		} else if (input === "help") {
