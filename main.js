@@ -87,7 +87,7 @@ function handleInput(aEvent) {
 				print(room.text);
 				if (room.end) {
 					exitStory = true;
-					print("Press enter to continue...");
+					print("(Press enter to continue...)");
 				}
 			} else {
 				print("There is nothing in that direction");
@@ -159,28 +159,28 @@ function setPrompt() {
 	io.input.style.width = (document.body.offsetWidth - io.prompt.offsetWidth - 64) + "px";
 }
 
-const bigTitle = `                  Whoever Might Explain This
+const bigTitle = String.raw`                  Whoever Might Explain This
   _____ _____  _____ __  __   ______ ____  _      _  __     __
- / ____|  __ \\|_   _|  \\/  | |  ____/ __ \\| |    | | \\ \\   / /
-| |  __| |__) | | | | \\  / | | |__ | |  | | |    | |  \\ \\_/ /
-| | |_ |  _  /  | | | |\\/| | |  __|| |  | | |    | |   \\   /
-| |__| | | \\ \\ _| |_| |  | | | |   | |__| | |____| |____| |
- \\_____|_|  \\_\\_____|_|  |_| |_|    \\____/|______|______|_|
+ / ____|  __ \|_   _|  \/  | |  ____/ __ \| |    | | \ \   / /
+| |  __| |__) | | | | \  / | | |__ | |  | | |    | |  \ \_/ /
+| | |_ |  _  /  | | | |\/| | |  __|| |  | | |    | |   \   /
+| |__| | | \ \ _| |_| |  | | | |   | |__| | |____| |____| |
+ \_____|_|  \_\_____|_|  |_| |_|    \____/|______|______|_|
 `;
 
-const mediumTitle = `   Whoever Might Explain This
+const mediumTitle = String.raw`   Whoever Might Explain This
     _____ _____  _____ __  __
-   / ____|  __ \\|_   _|  \\/  |
-  | |  __| |__) | | | | \\  / |
-  | | |_ |  _  /  | | | |\\/| |
-  | |__| | | \\ \\ _| |_| |  | |
-   \\_____|_|  \\_\\_____|_|  |_|
+   / ____|  __ \|_   _|  \/  |
+  | |  __| |__) | | | | \  / |
+  | | |_ |  _  /  | | | |\/| |
+  | |__| | | \ \ _| |_| |  | |
+   \_____|_|  \_\_____|_|  |_|
  ______ ____  _      _  __     __
-|  ____/ __ \\| |    | | \\ \\   / /
-| |__ | |  | | |    | |  \\ \\_/ /
-|  __|| |  | | |    | |   \\   /
+|  ____/ __ \| |    | | \ \   / /
+| |__ | |  | | |    | |  \ \_/ /
+|  __|| |  | | |    | |   \   /
 | |   | |__| | |____| |____| |
-|_|    \\____/|______|______|_|
+|_|    \____/|______|______|_|
 `;
 
 const smallTitle = `whoever might explain this
