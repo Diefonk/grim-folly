@@ -35,7 +35,7 @@ four.books4 = {
 		text: "All of these books are written by skeletons, for skeletons."
 	},
 	south: "books5"
-}
+};
 
 four.books5 = {
 	text: "You wonder if there is any end to all of these BOOKS. You can go EAST.",
@@ -43,7 +43,7 @@ four.books5 = {
 		text: "All of these books are written by people cursed with terrible fates."
 	},
 	east: "end"
-}
+};
 
 four.end = {
 	text: "You are completely surrounded by bookshelves with nowhere to go. In the middle of the space is a table with a single big BOOK on it.",
