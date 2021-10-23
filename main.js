@@ -110,6 +110,10 @@ function handleInput(aEvent) {
 				let object = input.substr(spaceIndex + 1);
 				if (object in room && room[object].text) {
 					print(room[object].text);
+					if (room[object].end) {
+						exitStory = true;
+						print("(Press enter to continue...)");
+					}
 				} else {
 					print("That is not an object");
 				}
