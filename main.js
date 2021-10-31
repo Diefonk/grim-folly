@@ -102,7 +102,7 @@ function handleInput(aEvent) {
 					print("That is not a character");
 				}
 			} else {
-				print("The talk command requires a character\ne.g. 'talk rat'");
+				print("The talk command requires a character\ne.g. 'talk skeleton' or 't skeleton'");
 			}
 		} else if (input === "examine" || input === "x" || input.substr(0, 8) === "examine " || input.substr(0, 2) === "x ") {
 			let spaceIndex = input.indexOf(" ");
@@ -118,7 +118,7 @@ function handleInput(aEvent) {
 					print("That is not an object");
 				}
 			} else {
-				print("The examine command requires an object\ne.g. 'examine box'");
+				print("The examine command requires an object\ne.g. 'examine skeleton' or 'x skeleton'");
 			}
 		} else if (input === "look" || input === "l") {
 			print(room.text);

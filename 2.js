@@ -29,13 +29,16 @@ two.web1 = {
 two.room2 = {
 	text: "Another COMMENT awaits your return. You consider trying SOUTH next.",
 	comment: {
-		text: "This comment gets to you. Maybe sharing your entire life with anyone who wants to watch is not healthy? Nah!"
+		text: "This comment gets to you. Maybe sharing your entire life with anyone who wants to watch is not healthy? Should you stop, or at least be a bit more conservative with what you share? Nah, you hate conservatives!"
 	},
 	south: "web2"
 };
 
 two.web2 = {
 	text: "A skeleton GIF dances around you. It cheers you up a little.\nGo back NORTH?",
+	gif: {
+		text: "Or maybe it is pronounced \"GIF\"?"
+	},
 	north: "room3"
 };
 

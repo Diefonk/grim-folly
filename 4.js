@@ -6,9 +6,9 @@ four.start = {
 };
 
 four.books1 = {
-	text: "The BOOKS here seem a little bit more familiar to you, but the layout of this place still baffles you. You can go WEST.",
+	text: "The BOOKS here seem a little bit more familiar to you, but the layout of this place is still baffling. You can go WEST.",
 	books: {
-		text: "All of these books are written by authors who turned out to be bad people and seemingly did not learn the moral lessons they wrote themselves."
+		text: "All of these books are written by authors who turned out to be bad people and seemingly did not learn the moral lessons they themselves wrote."
 	},
 	west: "books2"
 };
@@ -24,7 +24,7 @@ four.books2 = {
 four.books3 = {
 	text: "There seems to be only one way to go at all times, so you go that way. More BOOKS. You can go WEST.",
 	books: {
-		text: "All of these books are the same trashy crime novel. You think that whoever owns this place bought them for very cheap when the publisher just wanted to get rid of their stock."
+		text: "All of these books are the same trashy crime novel. You think that whoever owns this place probably bought them for very cheap when the publisher just wanted to get rid of their stock after it sold less than they had hoped."
 	},
 	west: "books4"
 };

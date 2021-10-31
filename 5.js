@@ -1,12 +1,12 @@
 var five = {};
 
 five.start = {
-	text: "You are standing at the edge of a cemetery in the middle of the night. There is a path leading to the NORTH.",
+	text: "You are standing at the edge of a cemetery in the middle of the night. There is a path leading NORTH.",
 	north: "skeleton1"
 };
 
 five.skeleton1 = {
-	text: "After walking down the path for a short bit you come across a GRAVE whose inhabitant apparently didn't feel like staying six feet under. The SKELETON is digging its way out of the ground. Behind you the path goeas back to the SOUTH and in front of you it continues to the NORTH.",
+	text: "After walking down the path for a short bit you come across a GRAVE whose inhabitant apparently does not feel like staying six feet under. The SKELETON is digging its way out of the ground. Behind you the path goes back to the SOUTH and in front of you it continues to the NORTH.",
 	grave: {
 		text: "You assume it is a grave, but for some reason it has a mailbox instead of a tombstone."
 	},

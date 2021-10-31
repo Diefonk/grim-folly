@@ -11,7 +11,7 @@ body {
 	padding: 16px;
 }
 p, input {
-	font-family: "Syne Mono", monospace;
+	font-family: "Syne Mono", Courier, monospace;
 	font-size: 24px;
 	color: #fff;
 }
