@@ -8,11 +8,11 @@ function init() {
 	io.output = document.getElementById("output");
 	io.prompt = document.getElementById("prompt");
 	if (document.body.offsetWidth > 860) {
-		print(bigTitle);
+		io.print(bigTitle);
 	} else if (document.body.offsetWidth > 470) {
-		print(mediumTitle);
+		io.print(mediumTitle);
 	} else {
-		print(smallTitle);
+		io.print(smallTitle);
 	}
 	printMenu();
 	setPrompt();
@@ -23,7 +23,7 @@ function handleInput(aEvent) {
 	if (aEvent.keyCode === 13) {
 		aEvent.preventDefault();
 
-		print("> " + io.input.value);
+		io.print("> " + io.input.value);
 		const input = io.input.value.toLowerCase();
 		io.input.value = "";
 
@@ -45,7 +45,7 @@ function handleInput(aEvent) {
 					story = five;
 					initStory();
 				} else {
-					print("Finish the other stories to unlock the epilogue");
+					io.print("Finish the other stories to unlock the epilogue");
 				}
 			} else {
 				printMenu();
@@ -81,53 +81,53 @@ function handleInput(aEvent) {
 				}
 			}
 			if (direction === "") {
-				print("The walk command requires a direction\ne.g. 'walk north' or 'w n'");
+				io.print("The walk command requires a direction\ne.g. 'walk north' or 'w n'");
 			} else if (direction in room) {
 				room = story[room[direction]];
-				print(room.text);
+				io.print(room.text);
 				if (room.end) {
 					exitStory = true;
-					print("(Press enter to continue...)");
+					io.print("(Press enter to continue...)");
 				}
 			} else {
-				print("There is nothing in that direction");
+				io.print("There is nothing in that direction");
 			}
 		} else if (input === "talk" || input === "t" || input.substr(0, 5) === "talk " || input.substr(0, 2) === "t ") {
 			let spaceIndex = input.indexOf(" ");
 			if (spaceIndex >= 0) {
 				let character = input.substr(spaceIndex + 1);
 				if (character in room && room[character].talk) {
-					print(room[character].talk);
+					io.print(room[character].talk);
 				} else {
-					print("That is not a character");
+					io.print("That is not a character");
 				}
 			} else {
-				print("The talk command requires a character\ne.g. 'talk skeleton' or 't skeleton'");
+				io.print("The talk command requires a character\ne.g. 'talk skeleton' or 't skeleton'");
 			}
 		} else if (input === "examine" || input === "x" || input.substr(0, 8) === "examine " || input.substr(0, 2) === "x ") {
 			let spaceIndex = input.indexOf(" ");
 			if (spaceIndex >= 0) {
 				let object = input.substr(spaceIndex + 1);
 				if (object in room && room[object].text) {
-					print(room[object].text);
+					io.print(room[object].text);
 					if (room[object].end) {
 						exitStory = true;
-						print("(Press enter to continue...)");
+						io.print("(Press enter to continue...)");
 					}
 				} else {
-					print("That is not an object");
+					io.print("That is not an object");
 				}
 			} else {
-				print("The examine command requires an object\ne.g. 'examine skeleton' or 'x skeleton'");
+				io.print("The examine command requires an object\ne.g. 'examine skeleton' or 'x skeleton'");
 			}
 		} else if (input === "look" || input === "l") {
-			print(room.text);
+			io.print(room.text);
 		} else if (input === "help") {
-			print(help);
+			io.print(help);
 		} else if (input === "xyzzy") {
-			print("Nothing happens");
+			io.print("   |\\\n   | \\\n   |  \\\n---+---\n\\  |\n \\ |\n  \\|");
 		} else {
-			print("Command not found\nType 'help' for a list of commands");
+			io.print("Command not found\nType 'help' for a list of commands");
 		}
 
 		window.scrollTo(0, document.body.scrollHeight);
@@ -139,15 +139,15 @@ function printMenu() {
 	if (!one.done || !two.done || !three.done || !four.done) {
 		text += " [LOCKED]";
 	}
-	print(text);
+	io.print(text);
 }
 
 function initStory() {
 	room = story.start;
-	print(room.text);
+	io.print(room.text);
 }
 
-function print(aString) {
+io.print = function(aString) {
 	var output = document.createElement("p");
 	var text = document.createTextNode(aString + "\n\n");
 	output.appendChild(text);
